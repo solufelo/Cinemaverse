@@ -12,8 +12,8 @@ echo "Node.js version: $node_version"
 
 # Install Wasp CLI if not present
 if ! command -v wasp &> /dev/null; then
-    echo "📦 Installing Wasp CLI..."
-    curl -sSL https://get.wasp.sh/installer.sh | sh
+    echo "📦 Installing Wasp CLI version 0.16.0..."
+    curl -sSL https://get.wasp.sh/installer.sh | sh -s -- -v 0.16.0
     export PATH="$HOME/.wasp/bin:$PATH"
 fi
 

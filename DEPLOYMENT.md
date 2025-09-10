@@ -16,17 +16,28 @@ This Wasp application is configured for deployment on Netlify.
 The `netlify.toml` file contains:
 - Build command: `./build.sh`
 - Publish directory: `.wasp/out/client`
-- Node.js version: 18
+- Node.js version: 20
 - SPA redirect rules for client-side routing
 
 ### Environment Variables
 
 Make sure to set these environment variables in your Netlify dashboard:
 
+**Database:**
 - `DATABASE_URL`: Your production database connection string
+
+**API Keys:**
 - `TMDB_API_KEY`: The Movie Database API key
 - `OPENAI_API_KEY`: OpenAI API key for AI features
 - `GROQ_API_KEY`: Groq API key for AI features
+
+**Email Configuration (SMTP):**
+- `SMTP_HOST`: Your SMTP server host (e.g., smtp.gmail.com, smtp.sendgrid.net)
+- `SMTP_PORT`: SMTP port (usually 587 for TLS or 465 for SSL)
+- `SMTP_USERNAME`: Your SMTP username
+- `SMTP_PASSWORD`: Your SMTP password
+
+**Other:**
 - Any other API keys used in your application
 
 ### Database Setup

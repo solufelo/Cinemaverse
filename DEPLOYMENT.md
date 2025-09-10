@@ -9,13 +9,13 @@ This Wasp application is configured for deployment on Netlify.
 1. **Wasp CLI Installation**: The build script automatically installs Wasp CLI if not present
 2. **Dependencies**: Installs Node.js dependencies via `npm install`
 3. **Wasp Build**: Runs `wasp build` to generate the client-side application
-4. **Output**: The built application is available in `.wasp/out/web-app/dist`
+4. **Output**: The built application is available in `.wasp/build/web-app/dist`
 
 ### Netlify Configuration
 
 The `netlify.toml` file contains:
 - Build command: `./build.sh`
-- Publish directory: `.wasp/out/web-app/dist`
+- Publish directory: `.wasp/build/web-app/dist`
 - Node.js version: 20
 - SPA redirect rules for client-side routing
 - Next.js plugin disabled for Wasp applications

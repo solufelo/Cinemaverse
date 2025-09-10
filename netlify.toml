@@ -1,7 +1,7 @@
 [build]
   # Wasp applications need to be built using the Wasp CLI
   command = "./build.sh"
-  publish = ".wasp/out/web-app/dist"
+  publish = ".wasp/build/web-app/dist"
 
 [build.environment]
   # Set Node.js version - Wasp requires Node 20+

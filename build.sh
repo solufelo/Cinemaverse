@@ -30,9 +30,9 @@ wasp build
 
 # Build the client application
 echo "🔨 Building client application..."
-cd .wasp/out/web-app
+cd .wasp/build/web-app
 npm run build
 cd ../../..
 
 echo "✅ Build completed successfully!"
-echo "📁 Build output is in .wasp/out/web-app/dist"
+echo "📁 Build output is in .wasp/build/web-app/dist"

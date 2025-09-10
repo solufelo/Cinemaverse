@@ -59,9 +59,9 @@
   },
   "scripts": {
     "build": "./render-build-script.sh",
-    "start": "cd .wasp/build && npm install --production && npm run start:server",
+    "start": "npm --prefix .wasp/build install --production && npm --prefix .wasp/build run start:server",
     "db:migrate": "wasp db migrate-dev",
     "db:seed": "wasp db seed",
-    "start:server": "cd .wasp/build && npm install --production && npm run start:server"
+    "start:server": "npm --prefix .wasp/build run start:server"
   }
 }

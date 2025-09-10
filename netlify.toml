@@ -1,7 +1,7 @@
 [build]
   # Wasp applications need to be built using the Wasp CLI
   command = "./build.sh"
-  publish = ".wasp/out/client"
+  publish = ".wasp/out/web-app/dist"
 
 [build.environment]
   # Set Node.js version - Wasp requires Node 20+
@@ -9,6 +9,9 @@
   
   # Wasp build environment
   WASP_ENV = "production"
+  
+  # Skip Next.js plugin since we're using Wasp
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
 # Redirect rules for SPA routing
 [[redirects]]

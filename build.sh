@@ -28,5 +28,11 @@ npm install
 echo "🔨 Building Wasp application..."
 wasp build
 
+# Build the client application
+echo "🔨 Building client application..."
+cd .wasp/out/web-app
+npm run build
+cd ../../..
+
 echo "✅ Build completed successfully!"
-echo "📁 Build output is in .wasp/out/client"
+echo "📁 Build output is in .wasp/out/web-app/dist"

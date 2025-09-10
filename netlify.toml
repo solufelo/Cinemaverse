@@ -1,7 +1,11 @@
-[build]
-  # Wasp applications need to be built using the Wasp CLI
-  command = "./build.sh"
-  publish = ".wasp/build/web-app/dist"
+# NOTE: Netlify static deployment is not compatible with Wasp applications
+# Wasp apps require a full-stack deployment (client + server + database)
+# Please use Fly.io or Railway for deployment instead
+# See fly-deployment-guide.md or railway-deployment-guide.md
+
+# [build]
+#   command = "./build.sh"
+#   publish = ".wasp/build/web-app/dist"
 
 [build.environment]
   # Set Node.js version - Wasp requires Node 20+

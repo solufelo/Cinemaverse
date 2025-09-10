@@ -33,9 +33,7 @@ echo "🔨 Building Wasp application..."
 export PATH="$WASP_PATH:$PATH"
 wasp build
 
-echo "📦 Installing server dependencies inside .wasp/build..."
-cd .wasp/build
-npm install --production
-cd -
+echo "📦 Installing server dependencies inside .wasp/build/server..."
+npm --prefix .wasp/build/server install --omit=dev
 
 echo "✅ Build completed successfully!"

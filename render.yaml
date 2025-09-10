@@ -4,10 +4,12 @@ services:
     env: node
     plan: free
     buildCommand: chmod +x render-build-script.sh && npm install && npm run build
-    startCommand: node .wasp/build/server/server.js
+    startCommand: npm --prefix .wasp/build/server run start
     envVars:
       - key: NODE_ENV
         value: production
+      - key: PORT
+        value: 10000
       - key: WASP_ENV  
         value: production
       - key: DATABASE_URL

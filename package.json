@@ -59,7 +59,7 @@
   },
   "scripts": {
     "build": "./render-build-script.sh",
-    "start": "export PATH=\"$HOME/.wasp/bin:/opt/render/.local/bin:$PATH\" && wasp start",
+    "start": "cd .wasp/build && npm install --production && npm run start:server",
     "db:migrate": "wasp db migrate-dev",
     "db:seed": "wasp db seed",
     "start:server": "cd .wasp/build && npm install --production && npm run start:server"

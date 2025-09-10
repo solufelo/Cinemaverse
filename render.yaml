@@ -4,7 +4,7 @@ services:
     env: node
     plan: free
     buildCommand: chmod +x render-build-script.sh && npm install && npm run build
-    startCommand: export PATH="/opt/render/.local/bin:$PATH" && cd .wasp/build && npm install --production && npm run start:server
+    startCommand: cd .wasp/build && npm install --production && npm run start:server
     envVars:
       - key: NODE_ENV
         value: production

@@ -58,7 +58,7 @@
     "vite": "^4.3.9"
   },
   "scripts": {
-    "build": "curl -sSL https://get.wasp.sh/installer.sh | sh -s -- -v 0.16.0 && export PATH=\"$HOME/.wasp/bin:$PATH\" && wasp build",
+    "build": "./render-build-script.sh",
     "start": "wasp start",
     "db:migrate": "wasp db migrate-dev",
     "db:seed": "wasp db seed",

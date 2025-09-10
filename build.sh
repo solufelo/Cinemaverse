@@ -5,10 +5,15 @@ set -e
 
 echo "🚀 Starting CinemaVerse Wasp build process..."
 
+# Check Node.js version
+echo "🔍 Checking Node.js version..."
+node_version=$(node --version | cut -d'v' -f2)
+echo "Node.js version: $node_version"
+
 # Install Wasp CLI if not present
 if ! command -v wasp &> /dev/null; then
     echo "📦 Installing Wasp CLI..."
-    curl -sSL https://get.wasp-lang.dev/installer.sh | sh
+    curl -sSL https://get.wasp.sh/installer.sh | sh
     export PATH="$HOME/.wasp/bin:$PATH"
 fi
 

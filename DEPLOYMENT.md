@@ -24,22 +24,16 @@ The `netlify.toml` file contains:
 
 Make sure to set these environment variables in your Netlify dashboard:
 
-**Database:**
+**Required:**
 - `DATABASE_URL`: Your production database connection string
+- `TMDB_API_KEY`: The Movie Database API key (required for movie/TV data)
 
-**API Keys:**
-- `TMDB_API_KEY`: The Movie Database API key
-- `OPENAI_API_KEY`: OpenAI API key for AI features
-- `GROQ_API_KEY`: Groq API key for AI features
+**Optional (for enhanced features):**
+- `OPENROUTER_API_KEY`: OpenRouter API key for AI-powered recommendations and summaries
+- `SENDGRID_API_KEY`: SendGrid API key for email functionality
+- `ADMIN_EMAILS`: Comma-separated list of admin email addresses
 
-**Email Configuration (SMTP):**
-- `SMTP_HOST`: Your SMTP server host (e.g., smtp.gmail.com, smtp.sendgrid.net)
-- `SMTP_PORT`: SMTP port (usually 587 for TLS or 465 for SSL)
-- `SMTP_USERNAME`: Your SMTP username
-- `SMTP_PASSWORD`: Your SMTP password
-
-**Other:**
-- Any other API keys used in your application
+**Note:** The application will work with just the required variables. AI features will show fallback content when OpenRouter API key is not provided.
 
 ### Database Setup
 

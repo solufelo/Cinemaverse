@@ -34,7 +34,8 @@ interface OpenRouterResponse {
 class AIService {
   private async callOpenRouter(prompt: string, systemMessage?: string): Promise<string> {
     if (!OPENROUTER_API_KEY) {
-      throw new HttpError(500, 'OpenRouter API key not configured')
+      // Return fallback response when AI is not available
+      return 'AI features are not available. Please configure OpenRouter API key for personalized recommendations.'
     }
 
     const messages = [
@@ -76,6 +77,17 @@ class AIService {
   }
 
   async generateRecommendations(userId: string, watchlist: WatchItem[]): Promise<string[]> {
+    if (!OPENROUTER_API_KEY) {
+      // Return fallback recommendations when AI is not available
+      return [
+        'Based on your watchlist, try exploring similar genres',
+        'Check out trending movies in your favorite categories',
+        'Look for films by directors you enjoy',
+        'Explore award-winning films in your preferred genres',
+        'Try international films from countries you like'
+      ]
+    }
+
     const systemMessage = `You are a movie and TV show recommendation expert. Based on the user's watchlist, suggest 5 movies or TV shows they might enjoy. Focus on variety and include both popular and hidden gems. Return only the titles, one per line.`
 
     const watchlistSummary = watchlist
@@ -89,6 +101,11 @@ class AIService {
   }
 
   async generateSummary(title: string, overview: string, mediaType: string): Promise<string> {
+    if (!OPENROUTER_API_KEY) {
+      // Return the original overview when AI is not available
+      return overview || `A ${mediaType.toLowerCase()} that promises an engaging viewing experience.`
+    }
+
     const systemMessage = `You are a movie and TV show critic. Create a concise, engaging summary (2-3 sentences) that captures the essence of the content without spoilers. Make it appealing to potential viewers.`
 
     const prompt = `Create a brief, engaging summary for this ${mediaType.toLowerCase()}:\nTitle: ${title}\nOverview: ${overview}`
@@ -97,6 +114,12 @@ class AIService {
   }
 
   async generateReview(title: string, rating: number, userThoughts?: string): Promise<string> {
+    if (!OPENROUTER_API_KEY) {
+      // Return fallback review when AI is not available
+      const ratingText = rating >= 8 ? 'excellent' : rating >= 6 ? 'good' : rating >= 4 ? 'decent' : 'disappointing'
+      return `This ${ratingText} film deserves a ${rating}/10 rating. ${userThoughts || 'A solid viewing experience worth checking out.'}`
+    }
+
     const systemMessage = `You are a movie and TV show reviewer. Write a brief, personal review (2-3 sentences) based on the user's rating and thoughts. Make it sound natural and conversational.`
 
     const prompt = `Write a brief review for "${title}" with a rating of ${rating}/10${userThoughts ? ` and these thoughts: ${userThoughts}` : ''}:`

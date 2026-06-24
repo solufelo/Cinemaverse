@@ -29,8 +29,10 @@ npm run dev
 ## Netlify deploy
 
 1. Connect repo to Netlify
-2. Build: `npm run build` · Publish: `dist`
-3. Env vars:
+2. **Framework preset:** None (or Vite) — **not** Next.js
+3. Build: `npm run build` · Publish: `dist`
+4. If deploy still picks Next.js: Site settings → Build & deploy → **Clear build cache**, then redeploy
+5. Env vars:
    - `TMDB_API_KEY` — required for movie data
    - `VITE_SUPABASE_URL` + `VITE_SUPABASE_ANON_KEY` — optional, enables shared auth/feed
 
